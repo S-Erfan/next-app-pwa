@@ -1,4 +1,6 @@
 import { axiosPrivate } from "@/libs/axios";
+import CardCharacter from "./_components/CardCharacter";
+import axios, { AxiosError } from "axios";
 
 type CharacterType = {
   id: number;
@@ -53,8 +55,17 @@ const getAllCharacter = async () => {
       obj.message = data?.message ?? "";
     }
   } catch (error) {
+    if (axios.isAxiosError(error)) {
+      obj.message =
+        error?.response?.data?.message ||
+        error?.response?.data ||
+        error?.message ||
+        error ||
+        "";
+    } else {
+      console.error(error);
+    }
     obj.error = true;
-    obj.message = error?.message ?? "";
   } finally {
     return obj;
   }
@@ -62,7 +73,6 @@ const getAllCharacter = async () => {
 
 export default async function Rick() {
   const { data, info, error, message } = await getAllCharacter();
-  console.log(error, data, message);
 
   return (
     <>
@@ -78,7 +88,19 @@ export default async function Rick() {
               {message}
             </h1>
           ) : (
-            <></>
+            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+              {data?.map((item) => (
+                <div className="p-3" key={item.id}>
+                  <CardCharacter
+                    gender={item.gender}
+                    id={item.id}
+                    image={item.image}
+                    name={item.name}
+                    status={item.status}
+                  />
+                </div>
+              ))}
+            </div>
           )}
         </section>
       </main>

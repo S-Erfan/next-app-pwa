@@ -13,6 +13,15 @@ const withPWA = withPWAInit({
   },
 });
 
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "rickandmortyapi.com",
+      },
+    ],
+  },
+};
 
 export default withPWA(nextConfig);

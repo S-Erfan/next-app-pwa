@@ -16,6 +16,14 @@
   }
 }
 
+.ricky_screen {
+  background-image: url("/images/ricky.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(5%) brightness(75%);
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

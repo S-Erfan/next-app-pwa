@@ -5,22 +5,17 @@
   "description": "This next.js app is a PWA.",
   "icons": [
     {
-      "src": "./logo72x72.png",
-      "sizes": "72x72",
+      "src": "./logo/logo144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "./logo192x192.png",
+      "src": "./logo/logo192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./logo384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "./logo512x512.png",
+      "src": "./logo/logo512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
